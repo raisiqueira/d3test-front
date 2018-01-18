@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Home = props =>
+const Home = props => (
   <div>
     <h1>Centauro EXP_</h1>
-  </div>;
-
+  </div>
+);
 
 export default Home;
