@@ -16,17 +16,17 @@ button {
   border: 1px solid #c9c9c9;
 
   &.primary {
-    color: #fff;    
+    color: #fff;
     background: #65a80d;
     border: 0;
 
     &:hover {
-      background-color: darken(#65a80d, 10%)
+      background-color: darken(#65a80d, 10%);
     }
   }
 
   &:hover {
     transition-duration: 0.4s;
-    border-color: darken(#9c9c9c, 10%)
+    border-color: darken(#9c9c9c, 10%);
   }
 }
