@@ -179,6 +179,23 @@ class Forms extends Component {
          </div>
 
         </div>
+        <div className="form-wrapper">
+        <h4 className="form-title">Valor e parcelamento</h4>
+
+        <div className="form-items">
+        <label className="form-label">
+        <div className="form-select form-select-cc-installments">
+          <select>
+            <option>5x de R$132,00</option>
+            <option>4x de R$165,00</option>
+            <option>3x de R$220,00</option>
+            <option>2x de R$330,00</option>
+            <option>1x de R$660,00</option>
+          </select>
+          </div>
+        </label>
+        </div>
+        </div>
         </div>
       </section>
     );
