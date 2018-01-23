@@ -1,13 +1,133 @@
-.d3-form {
-  padding: 15px;
-  border-radius: 15px;
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid #c9c9c9;
+// Main section form forms and checkout itens
+.main {
+  display: flex;
+
+// left items
+  &-items {
+    order: 1;
+  }
+
+// Forms
+  &-form {
+    order: -1;
+  }
+}
+
+// Forms
+.form {
+  text-align: left;
+
+  &-wrapper {
+    padding: 10px 0;
+  }
+
+  &-title {
+    padding: .2em 0;
+  }
+
+  &-btn {
+    padding: 1.4em 3em;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+
+    &-active {
+      color: #fff;
+      background-color: #65a80d;
+      border-color: #65a80d;
+    }
+  }
+
+  &-label {
+    font-size: 15px;
+    color: #9a9a9a;
+    font-weight: normal;
+  }
+
+  &-input {
+    padding: 1.2em 2em;
+    margin: .5em;
+
+    &-err {
+      position: relative;
+      color: #831313;
+      border: 2px solid #831313 !important;
+    }
+
+    &-addr {
+      width: 320px;
+
+      &-num {
+        width: 30%;
+      }
+    }
+
+    &-compl {
+      width: 300px;
+    }
+  }
+
+  &-select {
+    position: relative;
+    display: inline-block;
+    margin: 0 .5em;
+    background-color: transparent;
+
+    &-uf {
+      width: 120px;
+    }
+
+    &-city {
+      width: 320px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 27px;
+      right: 30px;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #9a9a9a;
+      z-index: -2;
+    }
+
+    select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      width: 100%;
+      padding: 1.3em 2em;
+      border: 1px solid #D8D8D8;
+      border-radius: 10em;
+      margin: 0;
+      outline: 0;
+      cursor: pointer;
+      z-index: -1;
+    }
+  }
+
+  &-btn,
+  &-input {
+    border: 1px solid #c9c9c9;
+    border-radius: 10em;
+    outline: 0;
+
+    &:focus {
+      border-color: #65a80d;
+      transition: border .2s ease;
+    }
+  }
+
+  &-helper {
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
   &:focus {
-    border-color: #c9c9c9;
-    outline: 0;
+    outline: 0 !important;
   }
 }
