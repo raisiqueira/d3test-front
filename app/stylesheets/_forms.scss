@@ -21,6 +21,10 @@
     padding: 10px 0;
   }
 
+  &-items {
+    display: inline-block;
+  }
+
   &-title {
     padding: .2em 0;
   }
@@ -66,6 +70,15 @@
 
     &-compl {
       width: 300px;
+    }
+
+    &-cc-num,
+    &-cc-name {
+      width: 235px;
+    }
+
+    &-cc-cvc {
+      width: 25%;
     }
   }
 
