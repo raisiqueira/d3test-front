@@ -84,8 +84,8 @@
       position: relative;
       color: #831313;
       border: 2px solid #831313 !important;
-      background: url('images/alert.svg') 190px center no-repeat;
-      background-size: 18px auto;
+      background: url('images/alert.svg') calc(100% - 13px) center no-repeat;
+      background-size: 18px;
     }
 
     &-addr {
