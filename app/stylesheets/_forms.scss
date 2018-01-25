@@ -152,3 +152,28 @@
     outline: 0 !important;
   }
 }
+
+// Checkout Items
+.items {
+  &-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #65a80d;
+
+    &-small {
+      font-size: .7em;
+    }
+  }
+
+  &-list {
+    margin: .7em;
+
+    &-title {
+      font-size: 1.3em;
+    }
+
+    &-items {
+      list-style: none;
+    }
+  }
+}
