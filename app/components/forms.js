@@ -262,10 +262,10 @@ class Forms extends Component {
         </div>
 
         <div className='form-wrapper'>
-            <button className='btn form-btn'>Voltar</button>
+            <button className='btn form-btn form-btn-back'>Voltar</button>
             <button 
               onClick={this.submitForm}
-              className='btn form-btn form-btn-active'>Finalizar compra</button>
+              className='btn form-btn form-btn-submit'>Finalizar compra</button>
         </div>
       </div>
     );
