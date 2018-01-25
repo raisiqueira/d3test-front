@@ -39,27 +39,25 @@ class Forms extends Component {
   }
 
   submitForm(event) {
-    let submitErr = false;
+    let formError = false;
     let addrFields = ['addressAdr', 'addressNum', 'addressUF', 'addressCity'];
     let reqFields = ['ccNum', 'ccName', 'ccDtMonth', 'ccDtYear', 'ccCVC', 'addressCep'];
 
-    // validate required fields
-    reqFields.map(field => {
-      if (this.state[field] === '') {
-        submitErr = true;
+    reqFields.map(item => {
+      if (this.state[item] === '') {
+        formError = true;
       }
-    });
+    })
 
-    // validate address type and address fields
     if (this.state.addressType === 'diferent') {
-      addrFields.map(field => {
-        if (this.state[field] === '') {
-          submitErr = true;
+      addrFields.map(index => {
+        if (this.state[index] === '') {
+          formError = true;
         }
-      });
+      })
     }
 
-    this.props.submitFormError(submitErr);
+    this.props.submitFormError(formError);
   }
 
   render() {
@@ -87,7 +85,7 @@ class Forms extends Component {
             <label className='form-label'>
               CEP
               <InputMask
-                className={`form-input ${(this.props.formError && this.state.addressCep === '') ? `form-input-err` : ``}`}
+                className={`form-input ${(this.props.submitErr && this.state.addressCep === '') ? `form-input-err` : ``}`}
                 mask='99999-999'
                 onChange={(event) => this.handleCardForm(event, 'addressCep', '')}
                 value={this.state.addressCep}
@@ -105,7 +103,7 @@ class Forms extends Component {
               <label className='form-label'>
                 Logradouro
                 <input
-                  className={`form-input form-input-addr ${(this.props.formError && this.state.addressType === 'diferent' && this.state.addressAdr === '') ? `form-input-err` : ``}`}
+                  className={`form-input form-input-addr ${(this.props.submitErr && this.state.addressType === 'diferent' && this.state.addressAdr === '') ? `form-input-err` : ``}`}
                   onChange={(e) => this.handleCardForm(e, 'addressAdr', '')}
                   value={this.state.addressStreet}
                   type='text'
@@ -117,7 +115,7 @@ class Forms extends Component {
               <label className='form-label'>
                 Número
                 <input
-                  className={`form-input form-input-addr-num ${(this.props.formError && this.state.addressType === 'diferent' && this.state.addressNum === '') ? `form-input-err` : ``}`}
+                  className={`form-input form-input-addr-num ${(this.props.submitErr && this.state.addressType === 'diferent' && this.state.addressNum === '') ? `form-input-err` : ``}`}
                   onChange={(e) => this.handleCardForm(e, 'addressNum', '')}
                   value={this.state.addressNum}
                   type='text'
@@ -136,7 +134,7 @@ class Forms extends Component {
               <label className='form-label'>
                 UF
                 <div
-                  className={`form-select form-select-uf ${(this.props.formError && this.state.addressType === 'diferent' && this.state.addressUF === '') ? `form-select-err` : ``}`}
+                  className={`form-select form-select-uf ${(this.props.submitErr && this.state.addressType === 'diferent' && this.state.addressUF === '') ? `form-select-err` : ``}`}
                 >
                   <select onChange={(event) => this.handleCardForm(event, 'addressUF', '')}>
                     <option>--</option>
@@ -152,7 +150,7 @@ class Forms extends Component {
               <label className='form-label'>
                 Cidade
                 <div
-                  className={`form-select form-select-city ${(this.props.formError && this.state.addressType === 'diferent' && this.state.addressCity === '') ? `form-select-err` : ``}`}
+                  className={`form-select form-select-city ${(this.props.submitErr && this.state.addressType === 'diferent' && this.state.addressCity === '') ? `form-select-err` : ``}`}
                 >
                   <select onChange={(event) => this.handleCard(event, 'addressCity', '')}>
                     <option>--</option>
@@ -181,7 +179,7 @@ class Forms extends Component {
             <label className='form-label'>
               Número
               <InputMask
-                className={`form-input form-input-cc-num ${(this.props.formError && this.state.ccNum === '') ? `form-input-err` : ``}`}
+                className={`form-input form-input-cc-num ${(this.props.submitErr && this.state.ccNum === '') ? `form-input-err` : ``}`}
                 mask='9999 9999 9999 9999'
                 maskChar=''
                 onChange={(event) => this.handleCardForm(event, 'ccNum', 'number')}
@@ -194,7 +192,7 @@ class Forms extends Component {
             <label className='form-label'>
               Nome
               <input
-                className={`form-input form-input-cc-name ${(this.props.formError && this.state.ccName === '') ? `form-input-err` : ``}`}
+                className={`form-input form-input-cc-name ${(this.props.submitErr && this.state.ccName === '') ? `form-input-err` : ``}`}
                 onChange={(event) => this.handleCardForm(event, 'ccName', 'name')}
                 value={this.state.ccName}
               />
@@ -205,7 +203,7 @@ class Forms extends Component {
             <label className='form-label'>
               Validade
               <div
-                className={`form-select form-select-uf ${(this.props.formError && this.state.ccYear === '') ? `form-select-err` : ``}`}
+                className={`form-select form-select-uf ${(this.props.submitErr && this.state.ccYear === '') ? `form-select-err` : ``}`}
               >
                 <select onChange={(e) => this.handleCardForm(e, 'ccYear', 'expiry')}>
                   <option>--</option>
@@ -220,7 +218,7 @@ class Forms extends Component {
           <div className='form-items'>
             <label className='form-label'>
               <div
-                className={`form-select form-select-uf ${(this.props.formError && this.state.ccMonth === '') ? `form-select-err` : ``}`}
+                className={`form-select form-select-uf ${(this.props.submitErr && this.state.ccMonth === '') ? `form-select-err` : ``}`}
               >
                 <select onChange={(event) => this.handleCardForm(event, 'ccMonth', 'expiry')}>
                   <option></option>
@@ -239,7 +237,7 @@ class Forms extends Component {
             <label className='form-label'>
               Código de segurança
               <InputMask
-                className={`form-input form-input-cc-cvc ${(this.props.formError && this.state.ccCVC === '') ? `form-input-err` : ``}`}
+                className={`form-input form-input-cc-cvc ${(this.props.submitErr && this.state.ccCVC === '') ? `form-input-err` : ``}`}
                 mask='999'
                 maskChar=''
                 onChange={(event) => this.handleCardForm(event, 'ccCVC', 'cvc')}
@@ -263,16 +261,14 @@ class Forms extends Component {
           </label>
         </div>
 
-        <div className='form-actions'>
-          <div className='form-actions-column form-actions-column--back'>
-            <a className='form-button form-back'>Voltar</a>
-          </div>
-          <div className='form-actions-column form-actions-column--submit'>
-            <button onClick={this.submitForm} className='form-button form-button--active form-submit'>Finalizar compra</button>
-          </div>
+        <div className='form-wrapper'>
+            <button className='btn form-btn'>Voltar</button>
+            <button 
+              onClick={this.submitForm}
+              className='btn form-btn form-btn-active'>Finalizar compra</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
