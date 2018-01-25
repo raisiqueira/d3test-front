@@ -152,6 +152,11 @@
       cursor: pointer;
       z-index: -1;
     }
+
+    &-err select {
+      color: #831313;
+      border: 2px solid #831313 !important;
+    }
   }
 
   &-btn,
