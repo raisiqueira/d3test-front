@@ -2,9 +2,9 @@ import React from 'react';
 import Forms from './forms';
 import CheckoutInfo from './checkout-info';
 
-const MainForm = ({ formError, submitFormError }) =>
+const MainForm = ({ submitErr, submitFormError }) =>
     <main className="container main">
-        <Forms submitErr={formError} submitFormError={submitFormError} />
+        <Forms submitErr={submitErr} submitFormError={submitFormError} />
         <CheckoutInfo />
     </main>;
 
